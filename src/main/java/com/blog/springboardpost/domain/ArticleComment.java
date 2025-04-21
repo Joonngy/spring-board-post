@@ -22,7 +22,7 @@ import java.util.Objects;
 })
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-public class ArticleComment {
+public class ArticleComment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,20 +33,6 @@ public class ArticleComment {
     @Setter
     @Column(nullable = false, length = 500)
     private String content;
-
-
-    @CreatedDate
-    @Column(nullable = false, length = 100)
-    private LocalDateTime created_at;
-    @CreatedBy
-    @Column(nullable = false)
-    private String created_by;
-    @LastModifiedDate
-    @Column(nullable = false, length = 100)
-    private LocalDateTime modified_at;
-    @LastModifiedBy
-    @Column(nullable = false)
-    private String modified_by;
 
     protected ArticleComment() {
     }
